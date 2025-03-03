@@ -1,0 +1,78 @@
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="Clothify" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4c61d1ba-7042-48e4-89a0-2a47f4423e5b">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Clothify"/>
+	<query language="SQL"><![CDATA[SELECT * FROM orderdetails ;]]></query>
+	<field name="OrderID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="OrderID"/>
+		<property name="com.jaspersoft.studio.field.label" value="OrderID"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="orderdetails"/>
+	</field>
+	<field name="ProductID" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="ProductID"/>
+		<property name="com.jaspersoft.studio.field.label" value="ProductID"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="orderdetails"/>
+	</field>
+	<field name="Quantity" class="java.lang.Integer">
+		<property name="com.jaspersoft.studio.field.name" value="Quantity"/>
+		<property name="com.jaspersoft.studio.field.label" value="Quantity"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="orderdetails"/>
+	</field>
+	<field name="SubTotal" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="SubTotal"/>
+		<property name="com.jaspersoft.studio.field.label" value="SubTotal"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="orderdetails"/>
+	</field>
+	<background splitType="Stretch"/>
+	<title height="73" splitType="Stretch">
+		<element kind="staticText" uuid="dbb10041-aaf2-45a9-974f-f07d960ec815" x="110" y="11" width="410" height="50" forecolor="#050505" backcolor="#FFFFFF" fontSize="33.0" hTextAlign="Center">
+			<text><![CDATA[CLOTHIFY ]]></text>
+		</element>
+	</title>
+	<pageHeader height="55" splitType="Stretch">
+		<element kind="staticText" uuid="9076cdba-36c3-4d43-a800-8f14facd8ff5" x="220" y="12" width="210" height="30" fontSize="22.0" hTextAlign="Center">
+			<text><![CDATA[Orderdetails]]></text>
+		</element>
+	</pageHeader>
+	<columnHeader height="31" splitType="Stretch">
+		<element kind="staticText" uuid="ac8396f7-0854-44b0-83d6-2a7276e62a8a" x="79" y="0" width="100" height="30" fontSize="16.0" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Order ID]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4ed03ca5-7103-4abb-8bdf-3bb425d43871"/>
+		</element>
+		<element kind="staticText" uuid="b2a1a106-eaff-4013-b44e-a152f5bb093e" x="179" y="0" width="100" height="30" fontSize="16.0" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[ProductID]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="61227fc0-9891-4421-9e53-139a53095c22"/>
+		</element>
+		<element kind="staticText" uuid="beb0923b-621e-4d80-9bfc-2d380e7e7903" x="279" y="0" width="100" height="30" fontSize="16.0" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Quantity]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="62ee254d-2d3f-4d55-992e-cd40dc30a867"/>
+		</element>
+		<element kind="staticText" uuid="9c20f9bd-d371-46a2-9f3c-74e1be95c866" x="379" y="0" width="100" height="30" fontSize="16.0" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[SubTotal]]></text>
+			<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ca334e6f-9cf9-4e5d-bece-a791162beb75"/>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="34" splitType="Stretch">
+			<element kind="textField" uuid="4aaa1b3c-94b6-45f2-99f2-1c595149f5df" x="79" y="0" width="100" height="30" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{OrderID}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="4ed03ca5-7103-4abb-8bdf-3bb425d43871"/>
+			</element>
+			<element kind="textField" uuid="d8f20d2b-878b-4701-aefe-1836ce990aec" x="179" y="0" width="100" height="30" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{ProductID}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="61227fc0-9891-4421-9e53-139a53095c22"/>
+			</element>
+			<element kind="textField" uuid="4f195a0d-760b-419f-8253-e20920d5e588" x="279" y="0" width="100" height="30" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{Quantity}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="62ee254d-2d3f-4d55-992e-cd40dc30a867"/>
+			</element>
+			<element kind="textField" uuid="fba8f007-d0de-4a2f-beb9-846c5ca1b47a" x="379" y="0" width="100" height="30" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{SubTotal}]]></expression>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="ca334e6f-9cf9-4e5d-bece-a791162beb75"/>
+			</element>
+		</band>
+	</detail>
+	<columnFooter height="45" splitType="Stretch"/>
+	<pageFooter height="71" splitType="Stretch"/>
+	<summary height="42" splitType="Stretch"/>
+</jasperReport>

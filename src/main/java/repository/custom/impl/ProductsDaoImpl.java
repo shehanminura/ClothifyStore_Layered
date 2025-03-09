@@ -1,9 +1,11 @@
 package repository.custom.impl;
 
 import dbconnection.DBConnection;
+import dto.OrderDetail;
 import entity.ProductsEntity;
 import repository.custom.ProductsDao;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -78,4 +80,30 @@ public class ProductsDaoImpl implements ProductsDao {
         }
         return null;
     }
+
+    public boolean updateproduct(List<OrderDetail> orderDetails) {
+        for (OrderDetail orderDetail :orderDetails){
+            boolean isUpdateStock = updateproducts(orderDetail);
+            if (isUpdateStock){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean updateproducts(OrderDetail orderDetail) {
+        String SQL = "UPDATE PRODUCTS SET Quantity = Quantity-? WHERE ProductID = ?";
+        try {
+            Connection connection = DBConnection.getInstance().getConnection();
+            PreparedStatement psTm = connection.prepareStatement(SQL);
+            psTm.setObject(1,orderDetail.getQuantity());
+            psTm.setObject(2,orderDetail.getOrderID());
+            return psTm.executeUpdate()>0;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+
+
 }

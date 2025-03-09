@@ -1,5 +1,6 @@
-package dto;
+package entity;
 
+import dto.OrderDetail;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,12 +13,10 @@ import java.util.List;
 @NoArgsConstructor
 @ToString
 
-public class Order {
+public class OrderEntity {
     private String orderid;
     private String employeeId;
     private String totalcost;
     private String orderdate;
-
     private List<OrderDetail> orderDetails;
-
 }

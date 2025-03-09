@@ -63,14 +63,18 @@ public class AdminDashbordController {
 
     }
 
-    @FXML
-    void btnReportsOnAction(ActionEvent event) {
-
-    }
 
     public void btnAdminOnAction(ActionEvent actionEvent) throws IOException {
         URL resource = this.getClass().getResource("../../View/Admin_Form.fxml");
+        assert resource != null;
+        Parent load = FXMLLoader.load(resource);
+        this.loadContentAdmin.getChildren().clear();
+        this.loadContentAdmin.getChildren().add(load);
 
+    }
+
+    public void btngetReportsOnAction(ActionEvent event) throws IOException {
+        URL resource = this.getClass().getResource("../../View/GetReport.fxml");
         assert resource != null;
         Parent load = FXMLLoader.load(resource);
         this.loadContentAdmin.getChildren().clear();

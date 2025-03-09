@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="loadContentEmployee" prefHeight="489.0" prefWidth="632.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ReportController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="82.0" layoutX="-9.0" layoutY="-2.0" stroke="BLACK" strokeType="INSIDE" width="647.0" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="127.0" layoutY="18.0" prefHeight="42.0" prefWidth="383.0" text="Clothify Report" textFill="#f1c40f">
+         <font>
+            <Font name="Comic Sans MS Bold" size="30.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="443.0" layoutY="252.0" onAction="#btnGetItemReportOnAction" prefHeight="31.0" prefWidth="167.0" style="-fx-background-color: #f1c40f;" text="Item Report" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+      </JFXButton>
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#f1c40f" height="82.0" layoutX="10.0" layoutY="94.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#f1c40f" height="82.0" layoutX="220.0" layoutY="94.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+      <Rectangle arcHeight="50.0" arcWidth="50.0" fill="#f1c40f" height="82.0" layoutX="428.0" layoutY="94.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+      <JFXButton layoutX="443.0" layoutY="297.0" onAction="#btnGetEmpoyeeReportOnAction" prefHeight="31.0" prefWidth="167.0" style="-fx-background-color: #f1c40f;" text="Employee Report" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="443.0" layoutY="342.0" onAction="#btnGetOrderReportOnAction" prefHeight="31.0" prefWidth="167.0" style="-fx-background-color: #f1c40f;" text="Order Report" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+      </JFXButton>
+      <ImageView fitHeight="286.0" fitWidth="411.0" layoutX="18.0" layoutY="192.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Image/shoplogo.jpg" />
+         </image>
+      </ImageView>
+      <JFXButton layoutX="443.0" layoutY="387.0" onAction="#btnGetSupplierReportOnAction" prefHeight="31.0" prefWidth="167.0" style="-fx-background-color: #f1c40f;" text="Supplier Report" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS" size="14.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

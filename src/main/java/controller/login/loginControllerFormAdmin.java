@@ -31,6 +31,7 @@ public class loginControllerFormAdmin {
     AdminService service = ServiceFactory.getInstance().getServiceType(ServiceType.ADMIN);
     @FXML
     void btnLoginOnAction(ActionEvent event) throws SQLException, IOException {
+
         String key="12345";
         BasicTextEncryptor basicTextEncryptor = new BasicTextEncryptor();
         basicTextEncryptor.setPassword(key);
@@ -39,7 +40,10 @@ public class loginControllerFormAdmin {
         Admin byAdmin = service.findByAdmin(email);
 
         if (byAdmin!= null){
-            if (basicTextEncryptor.decrypt(byAdmin.getPassword()).equals(txtPassword.getText())) {
+            String decrypt = basicTextEncryptor.decrypt(byAdmin.getPassword());
+            System.out.println(byAdmin.getPassword());
+            System.out.println(decrypt);
+            if (decrypt.equals(txtPassword.getText())) {
                 Stage stage = new Stage();
                 stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/view/Admin_Dashbord.fxml"))));
                 stage.show();

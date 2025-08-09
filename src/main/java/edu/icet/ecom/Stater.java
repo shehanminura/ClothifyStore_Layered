@@ -13,7 +13,7 @@ public class Stater extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/View/Admin_Dashbord.fxml"))));
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/View/loginDashbord.fxml"))));
         stage.show();
     }
 }

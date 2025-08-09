@@ -1,6 +1,7 @@
 package controller;
 
 import com.jfoenix.controls.JFXTextField;
+import dto.Admin;
 import dto.Employee;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -13,6 +14,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import lombok.SneakyThrows;
+import org.jasypt.util.text.BasicTextEncryptor;
 import service.ServiceFactory;
 import service.custom.EmployeeService;
 import util.ServiceType;
@@ -93,8 +95,16 @@ public class EmployeeFormController implements Initializable {
         String name = txtname.getText();
         String company = txtCompany.getText();
         String email = txtEmail.getText();
-        String pssword = txtPassword.getText();
-        Employee employee = new Employee(empid, adminid, name, company, email, pssword);
+        String password = txtPassword.getText();
+
+        String key = "1234";
+        BasicTextEncryptor basicTextEncryptor = new BasicTextEncryptor();
+        basicTextEncryptor.setPassword(key);
+
+        String encrypt = basicTextEncryptor.encrypt(password);
+
+
+        Employee employee = new Employee(empid, adminid, name, company, email, encrypt);
         boolean isAdd = service.addEmployee(employee);
         System.out.println(isAdd);
         if (isAdd){

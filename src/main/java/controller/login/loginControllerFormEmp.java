@@ -27,7 +27,6 @@ public class loginControllerFormEmp {
     @FXML
     private JFXTextField txtPassword;
 
-
     EmployeeService service = ServiceFactory.getInstance().getServiceType(ServiceType.EMPLOYEE);
 
     @FXML
@@ -37,7 +36,6 @@ public class loginControllerFormEmp {
         basicTextEncryptor.setPassword(key);
 
         Employee empByEmail = service.getEmpByEmail(txtEmail.getText());
-
         if (basicTextEncryptor.decrypt(empByEmail.getPassword()).equals(txtPassword.getText())){
             Stage stage = new Stage();
             stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/View/Employee_Dashbord.fxml"))));
@@ -45,10 +43,5 @@ public class loginControllerFormEmp {
             Stage currentStage = (Stage) txtEmail.getScene().getWindow();
             currentStage.close();
         }
-
-
-
-
     }
-
 }

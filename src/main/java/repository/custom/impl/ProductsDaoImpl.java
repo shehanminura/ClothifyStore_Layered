@@ -82,9 +82,9 @@ public class ProductsDaoImpl implements ProductsDao {
     }
 
     public boolean updateproduct(List<OrderDetail> orderDetails) {
-        for (OrderDetail orderDetail :orderDetails){
+        for (OrderDetail orderDetail : orderDetails) {
             boolean isUpdateStock = updateproducts(orderDetail);
-            if (isUpdateStock){
+            if (!isUpdateStock) {  // ✅ Correct logic
                 return false;
             }
         }
@@ -92,18 +92,17 @@ public class ProductsDaoImpl implements ProductsDao {
     }
 
     private boolean updateproducts(OrderDetail orderDetail) {
-        String SQL = "UPDATE PRODUCTS SET Quantity = Quantity-? WHERE ProductID = ?";
+        String SQL = "UPDATE PRODUCTS SET Quantity = Quantity - ? WHERE ProductID = ?";
         try {
             Connection connection = DBConnection.getInstance().getConnection();
             PreparedStatement psTm = connection.prepareStatement(SQL);
-            psTm.setObject(1,orderDetail.getQuantity());
-            psTm.setObject(2,orderDetail.getOrderID());
-            return psTm.executeUpdate()>0;
+            psTm.setObject(1, orderDetail.getQuantity());
+            psTm.setObject(2, orderDetail.getProductID());  // ✅ Correct column
+            return psTm.executeUpdate() > 0;
         } catch (SQLException e) {
+            e.printStackTrace();
             throw new RuntimeException(e);
         }
-
     }
-
 
 }

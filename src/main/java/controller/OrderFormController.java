@@ -210,7 +210,7 @@ public class OrderFormController implements Initializable {
     @FXML
     void PlaceOrderOnAction(ActionEvent event) throws SQLException {
 
-        String productId = cmdProductsId.getValue().toString();
+        String orderId = txtOrderId.getText();
         String employeeid = cmdEmployeeid.getValue().toString();
         String totalCost = lblNetTotal.getText();
         String date = lblDate.getText();
@@ -224,9 +224,9 @@ public class OrderFormController implements Initializable {
                     cartTM.getTotal()
             ));
         });
-        boolean isadd = orderService.addOrder(new Order(productId, employeeid, totalCost, date, orderDetails));
+        boolean isadd = orderService.addOrder(new Order(orderId, employeeid, totalCost, date, orderDetails));
         if (isadd){
-            new Alert(Alert.AlertType.ERROR,"Order Place Successfully").show();
+            new Alert(Alert.AlertType.CONFIRMATION,"Order Place Successfully").show();
         }
     }
 
